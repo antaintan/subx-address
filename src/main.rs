@@ -7,6 +7,7 @@ use cron::Schedule;
 
 use std::collections::BTreeMap;
 use std::str::FromStr;
+use std::time::SystemTime;
 
 fn main() {
     let mut map = BTreeMap::new();
@@ -30,7 +31,7 @@ fn main() {
 }
 
 fn do_job() {
-    println!("{:?}: It's time!", std::time::SystemTime::now());
+    println!("{:?}: It's time!", SystemTime::now());
 }
 
 #[get("/")]
