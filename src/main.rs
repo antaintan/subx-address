@@ -63,8 +63,8 @@ fn create(pwd: &RawStr) -> JsonValue {
     // 生成公钥, 私钥(seed)
     println!("public_key = {:?}", pair.public());
 
-    let seed = hex::encode(pair.seed());
-    println!("seed = 0x{}", seed);
+    let seed = "0x".to_string() + hex::encode(pair.seed()).as_str();
+    println!("seed = {}", seed);
 
     // 生成地址
     let address = pair.public().to_ss58check().to_string();
