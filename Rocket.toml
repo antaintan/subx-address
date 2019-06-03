@@ -1,0 +1,24 @@
+[global]
+address = "0.0.0.0"
+port = 8022
+
+[dev]
+#workers = [2]
+keep_alive = 5
+log = "normal"
+#secret_key = "evgz8dQjPV"
+limits = { forms = 32768 }
+
+[stage]
+#workers = [2]
+keep_alive = 5
+log = "normal"
+#secret_key = "TxtaTRdmwG"
+limits = { forms = 32768 }
+
+[prod]
+#workers = [2]
+keep_alive = 5
+log = "critical"
+#secret_key = "5gnQ2HSH9u"
+limits = { forms = 32768 }
