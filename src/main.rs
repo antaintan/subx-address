@@ -1,6 +1,8 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 #[macro_use]
 extern crate rocket;
+#[macro_use] 
+extern crate rocket_contrib;
 
 use chrono::Utc;
 use cron::Schedule;
@@ -15,6 +17,8 @@ use substrate_primitives::crypto::Pair as CPair;
 use substrate_primitives::crypto::Ss58Codec;
 use substrate_primitives::ed25519::Pair;
 use tempdir::TempDir;
+use rocket_contrib::json::{Json, JsonValue};
+use rocket::http::RawStr;
 
 fn main() {
     let mut map = BTreeMap::new();
@@ -39,8 +43,7 @@ fn main() {
 
     // launch web
     rocket::ignite()
-        .mount("/", routes![index])
-        .mount("/address/create", routes![create])
+        .mount("/", routes![index, create])
         .launch();
 }
 
@@ -53,9 +56,9 @@ fn index() -> &'static str {
     "Hello, world!, rust web"
 }
 
-#[get("/address/create")]
-fn create(pwd: &str) -> JsonValue {
-    let (pair, phrase) = Pair::generate_with_phrase(Some(pwd));
+#[get("/address/create/<pwd>")]
+fn create(pwd: &RawStr) -> JsonValue {
+    let (pair, phrase) = Pair::generate_with_phrase(Some(pwd.as_str()));
 
     // 生成公钥, 私钥(seed)
     println!("public_key = {:?}", pair.public());

@@ -8,6 +8,7 @@ edition = "2018"
 cron = "0.6.0"
 chrono = "0.4.6"
 rocket = "0.4.1"
+rocket_contrib = "0.4.1"
 yaml-rust = "0.4"
 derive_more = "0.14.0"
 #substrate = { git="https://github.com/paritytech/substrate" }
