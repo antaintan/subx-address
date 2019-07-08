@@ -11,9 +11,8 @@ rocket = "0.4.1"
 rocket_contrib = "0.4.1"
 yaml-rust = "0.4"
 derive_more = "0.14.0"
-#substrate = { git="https://github.com/paritytech/substrate" }
-substrate-keystore = {  path="../../../opensource/paritytech/substrate/core/keystore" }
-substrate-primitives = {  path="../../../opensource/paritytech/substrate/core/primitives" }
+substrate-primitives = { git = "https://github.com/paritytech/substrate" }
+substrate-keyring = { git = "https://github.com/paritytech/substrate" }
 hex = "0.3"
 rand = "0.6"
 serde_json = "1.0"

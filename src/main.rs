@@ -73,5 +73,5 @@ fn create(pwd: &RawStr) -> JsonValue {
     // 生成助记词
     println!("mnemonic = {:?}", phrase);
 
-    json!({ "code": 100, "seed": seed, "address": address, "mnemonic": phrase })
+    json!({ "code": 100, "seed": seed, "public": pair.public(), "address": address, "mnemonic": phrase })
 }
