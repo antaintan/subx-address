@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "rust-dev",
+            "name": "rust-demo",
             "type": "cppvsdbg",
+            //"type": "lldb", for macos or linux
             "request": "launch",
-            "program": "${workspaceFolder}/target/debug/rust-demo.exe",
-            "args": [],
+            "program": "${workspaceFolder}/target/debug/${workspaceRootFolderName}",
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true
+            "args": [],
+            "environment": []
         }
     ]
 }

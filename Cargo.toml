@@ -6,16 +6,16 @@ edition = "2018"
 
 [dependencies]
 cron = "0.6.0"
-chrono = "0.4.6"
-rocket = "0.4.1"
-rocket_contrib = "0.4.1"
-yaml-rust = "0.4"
-derive_more = "0.14.0"
+chrono = "0.4.10"
+rocket = "0.4.2"
+rocket_contrib = "0.4.2"
+yaml-rust = "0.4.3"
+derive_more = "0.99.2"
 substrate-primitives = { git = "https://github.com/paritytech/substrate" }
-substrate-keyring = { git = "https://github.com/paritytech/substrate" }
-hex = "0.3"
-rand = "0.6"
-serde_json = "1.0"
-subtle = "2.0"
+
+hex = "0.4.0"
+rand = "0.7.2"
+serde_json = "1.0.44"
+subtle = "2.2.2"
 tempdir = "0.3.7"
-ed25519-dalek = "1.0.0-pre.1"
+ed25519-dalek = "1.0.0-pre.3"
