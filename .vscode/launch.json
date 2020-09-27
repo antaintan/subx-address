@@ -5,15 +5,44 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "rust-demo",
-            "type": "cppvsdbg",
-            //"type": "lldb", for macos or linux
+            "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/target/debug/${workspaceRootFolderName}",
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "name": "subx-address",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=subx-address",
+                    "--package=subx-address"
+                ],
+                "filter": {
+                    "name": "subx-address",
+                    "kind": "bin"
+                }
+            },
             "args": [],
-            "environment": []
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "MYSQLCLIENT_LIB_DIR": "C:\\Program Files\\MySQL\\Connector C++ 8.0\\lib64\\"
+            }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "subx-address-test",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=subx-address",
+                    "--package=subx-address"
+                ],
+                "filter": {
+                    "name": "subx-address",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
