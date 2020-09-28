@@ -4,11 +4,16 @@ extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
 
-// 导出模块
-pub mod web;
+mod controllers;
 
 fn main() {
-    // 初始化web
-    web::init();
+    run_web_server();
 }
 
+fn run_web_server() {
+    rocket::ignite()
+        .mount("/", routes![controllers::home::index])
+        // 地址
+        .mount("/", routes![controllers::address::new_address])
+        .launch();
+}
